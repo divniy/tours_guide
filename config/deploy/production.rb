@@ -2,6 +2,8 @@ server 'osiris.divniy.com', user: 'deploy', roles: %w{web app db}
 
 set :branch, :master
 set :ssh_options, {forward_agent: true}
+set :rvm_type, :system
+set :rvm_ruby_version, 'ruby-2.2.1@tours_guide'
 
 # server-based syntax
 # ======================

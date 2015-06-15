@@ -5,6 +5,10 @@ set :application, 'tours_guide'
 set :repo_url, 'git@github.com:divniy/tours_guide.git'
 set :deploy_to, '/home/deploy/apps/tours_guide'
 
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_dirs, fetch(:linked_dirs, []).push('bin', 'log', 'tmp/pids', 'tmp/cache')
+set :unicorn_config_path, "#{current_path}/config/unicorn.rb"
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -36,14 +40,18 @@ set :deploy_to, '/home/deploy/apps/tours_guide'
 # set :keep_releases, 5
 
 namespace :deploy do
+  after :publishing, :restart
+  task :restart do
+    invoke 'unicorn:restart'
+  end
 
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
+  # after :restart, :clear_cache do
+  #   on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-    end
-  end
+    # end
+  # end
 
 end
