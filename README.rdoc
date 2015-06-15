@@ -1,6 +1,8 @@
 == Установка
 
-<tt>git clone https://github.com/divniy/tours_guide.git</tt>
-<tt>bundle</tt>
-<tt>rake db:setup</tt>
+<tt>
+git clone https://github.com/divniy/tours_guide.git
+bundle
+rake db:setup
+</tt>
 
