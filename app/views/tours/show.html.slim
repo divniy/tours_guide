@@ -1,0 +1,17 @@
+h1 = @tour.title
+.row
+  .col-md-9
+    ul.list-inline
+      li Город: #{link_to @tour.city.name, @tour.city}
+      li Категории: #{@tour.categories.map{|c| link_to c.name, c}.join(', ').html_safe}
+
+    - if @tour.description
+      p = @tour.description
+  aside.col-md-3
+    ul.list-unstyled
+      - @visited_tours.each do |tour|
+        li
+          => link_to tour.title, tour
+          = link_to 'x', remove_visited_tour_path(tour)
+
+

@@ -1,0 +1,14 @@
+tr
+  th = tour.id
+  td = tour.title
+  td = tour.city.try(:name)
+  td = tour.categories.pluck(:name).join(', ')
+  td
+    => tour.description.present? ? 'Да' : 'Нет'
+    => link_to 'История', admin_tour_editings_path(tour), class: 'btn btn-default btn-xs'
+  td = tour.published? ? 'Да' : 'Нет'
+  td
+    => link_to edit_admin_tour_path(tour), class: 'btn btn-warning btn-xs' do
+      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+    => link_to admin_tour_path(tour), class: 'btn btn-danger btn-xs', method: :delete do
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>

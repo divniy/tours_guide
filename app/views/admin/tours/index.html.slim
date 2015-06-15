@@ -1,0 +1,16 @@
+.well
+  => link_to 'Добавить экскурсию', new_admin_tour_path, class: 'btn btn-primary'
+  => link_to 'Перевод описаний', new_admin_tour_editing_path, class: 'btn btn-primary'
+
+table.table
+  thead
+    tr
+      th #
+      th Заголовок
+      th Город
+      th Категории
+      th Описание
+      th Публ.
+      th Действия
+  tbody = render @tours
+

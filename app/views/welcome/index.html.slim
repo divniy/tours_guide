@@ -1,0 +1,4 @@
+h1 Экскурсии по городам
+- @cities.each do |city|
+  h4 = link_to city.name, city_path(city)
+  = render city.published_tours.first(5)

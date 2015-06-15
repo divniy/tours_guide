@@ -1,0 +1,4 @@
+h1 = @tour_editing_form.title
+= bootstrap_form_for @tour_editing_form, url: admin_tour_editings_path(@tour_editing_form.tour) do |f|
+  = f.text_area :description
+  = f.primary

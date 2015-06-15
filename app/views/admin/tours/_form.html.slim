@@ -1,0 +1,10 @@
+= bootstrap_form_for @tour, url: @tour.new_record? ? admin_tours_url : admin_tour_url(@tour) do |f|
+  = f.text_field :title
+  = f.collection_select :city_id, City.all, :id, :name
+  = f.text_field :city_name
+  = f.collection_check_boxes :category_ids, Category.all, :id, :name
+  = f.text_field :category_names
+  = f.text_area :description
+  = f.check_box :published
+  => f.primary
+  => link_to('К списку', admin_tours_path, class: 'btn btn-default')

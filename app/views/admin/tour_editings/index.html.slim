@@ -1,0 +1,15 @@
+- if @tour_editings.any?
+  table.table
+    thead
+      tr
+        th Время
+        th Пользователь
+        th Описание
+    tbody
+      - @tour_editings.each do |tour_editing|
+        tr
+          td = l(tour_editing.created_at, format: :short)
+          td = tour_editing.user.try(:email) || 'Неизвестен'
+          td = tour_editing.description
+- else
+  p Список изменений пуст

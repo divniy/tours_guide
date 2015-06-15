@@ -15,11 +15,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 
+gem 'devise'
 gem 'slim-rails'
 gem 'bootstrap-sass', '~> 3.3.4'
 gem 'bootstrap_form'
 gem 'pry-rails'
 gem 'better_errors', group: :development
+gem 'ffaker'
+gem 'quiet_assets', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

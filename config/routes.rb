@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  root 'welcome#index'
+  resources :cities, only: :show
+  resources :categories, only: :show
+  resources :tours, only: :show do
+    get :remove_visited, on: :member
+  end
+
+  devise_for :users
+  namespace :admin do
+    root 'tours#index'
+    resources :tours, except: :show do
+      resources :tour_editings, only: [:index, :create], as: 'editings'
+    end
+    resources :tour_editings, only: :new
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
