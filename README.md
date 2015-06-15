@@ -1,5 +1,4 @@
-== Установка
-
+## Установка
 
 ``` sh
 $ git clone https://github.com/divniy/tours_guide.git
